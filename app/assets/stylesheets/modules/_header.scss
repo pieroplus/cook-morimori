@@ -1,0 +1,76 @@
+.header{
+  background-color: $color-white;
+  height: 60px;
+  border-bottom: solid 2px $color-orange;
+  &__left{
+    &__subtitle{
+      margin-top: 5px;
+      &__message{
+        font-size: 11px;
+        margin-left: 5px;
+      }
+    }
+    &__title{
+      &__message{
+        font-size: 24px;
+        font-style: fantasy;
+        margin-left: 30px;
+        color: $color-orange;
+        float: left;
+      }
+    }
+    &__image{
+      margin-top: -15px;
+      heigth: 35px;
+      width: 35px;
+      margin-left:20px;
+      margin-right: 20px;
+      float: left;
+    }
+    &__subtitle2{
+        margin-left: 10px;
+        float: left;
+      &__message{
+        font-size: 11px;
+      }
+    }
+    &__btn{
+      margin-top: -10px;
+      margin-left: 20px;
+      // float: left;
+    }
+  }
+  &__center{
+
+    &__form{
+      &__search{
+        font-size: 12px;
+        margin: 8px 0;
+        padding: 0 15px;
+        display: block;
+        width: 300px;
+        height: 30px;
+        border-radius: 15px;
+        outline: 0;
+        background-color: $color-light-green;
+        margin-top:15px;
+        margin-right:20px;
+      }
+    }
+  }
+  &__right{
+    .btn__icon{
+      width: 20px;
+      height: 20px;
+      padding: -10px;
+      border-raius: 30px;
+    }
+    &__btn{
+      margin: 10px;
+      &__status{
+
+      }
+    }
+  }
+}
+

@@ -1,0 +1,2 @@
+class Morimori < ApplicationRecord
+end

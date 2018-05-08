@@ -1,0 +1,29 @@
+.contents{
+  height: 100px;
+  background-color: $color-light-green;
+  .left{
+     &__box{
+      background-color: $color-white;
+      border: solid 1px $color-light-orange;
+      border-radius: 10px;
+      width: 98%;
+      margin: 10px 0 0 10px;
+       &__title{
+      }
+    }
+  }
+  .center{
+    &__box{
+      background-color: $color-white;
+      width: 98%;
+      margin: 10px 0 0 10px;
+    }
+  }
+  .right{
+    &__box{
+      background-color: $color-white;
+      width: 98%;
+      margin: 10px 0 0 10px;
+    }
+  }
+}

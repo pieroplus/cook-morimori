@@ -1,0 +1,42 @@
+<div class="header" role="navigation">
+  <div class="header__left col-sm-4 col-md-4">
+    <div class="header__left__subtitle">
+      <p class="header__left__subtitle__message">奥様の為の献立検討サイト</p>
+    </div>
+    <div class="header__left__title">
+      <%= link_to '/' do %>
+        <p class="header__left__title__message">COOK MORIMORI</p>
+        <%= image_tag('cookdog.jpeg', class:"header__left__image") %>
+        <% end %>
+    </div>
+  </div>
+  <div class="header__center col-sm-4 col-md-4">
+    <form class="header__center__form">
+      <input type="text" placeholder="キーワード検索 （例：夏 豚肉）" class="header__center__form__search">
+    </form>
+  </div>
+  <div class="header__right col-sm-4 col-md-4">
+    <div class="header__right__btn">
+      <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"       aria-expanded="false">
+        メニュー <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">料理リスト</a></li>
+        <li><a href="#">タグリスト</a></li>
+        <li><a href="#">ユーザリスト</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">メニュー4</a></li>
+      </ul>
+      <% if user_signed_in? %>
+        <%= link_to '/', class:"btn btn-success" do %>
+          <%= current_user.name %>さん
+          <%= image_tag current_user.icon_image.url, class:"btn__icon" %>
+        <% end %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn btn-success" %>
+      <% else %>
+        <%= link_to "新規登録", new_user_registration_path, method: :get, class:"btn btn-success" %>
+        <%= link_to "ログイン", new_user_session_path, method: :get, class:"btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
