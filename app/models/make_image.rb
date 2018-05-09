@@ -1,0 +1,2 @@
+class MakeImage < ApplicationRecord
+end
