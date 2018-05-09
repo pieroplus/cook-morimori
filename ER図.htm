@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://ondras.zarovi.cz/sql/demo/?keyword=default -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>WWW SQL Designer</title>
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1">
+ 	
+	<link rel="stylesheet" href="./ER図_files/style.css" media="all">     
+	<!--[if IE 6]><link rel="stylesheet" type="text/css" href="styles/ie6.css" /><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" type="text/css" href="styles/ie7.css" /><![endif]-->
+	<link rel="stylesheet" href="./ER図_files/print.css" type="text/css" media="print">
+	<script type="text/javascript" src="./ER図_files/dropbox.min.js"></script>
+
+	<script src="./ER図_files/oz.js"></script>
+	<script src="./ER図_files/config.js"></script>
+	<script src="./ER図_files/globals.js"></script>
+	<script src="./ER図_files/visual.js"></script>
+	<script src="./ER図_files/row.js"></script>
+	<script src="./ER図_files/table.js"></script>
+	<script src="./ER図_files/relation.js"></script>
+	<script src="./ER図_files/key.js"></script>
+	<script src="./ER図_files/rubberband.js"></script>
+	<script src="./ER図_files/map.js"></script>
+	<script src="./ER図_files/toggle.js"></script>
+	<script src="./ER図_files/io.js"></script>
+	<script src="./ER図_files/tablemanager.js"></script>
+	<script src="./ER図_files/rowmanager.js"></script>
+	<script src="./ER図_files/keymanager.js"></script>
+	<script src="./ER図_files/window.js"></script>
+	<script src="./ER図_files/options.js"></script>
+	<script src="./ER図_files/wwwsqldesigner.js"></script>
+</head>
+
+<body style="visibility: visible;">
+	<div id="area" class=""><svg width="3000" height="3000"><path stroke="#088" stroke-width="2" fill="none" d="M 645 434 C 630 434 630 241 648 241"></path><path stroke="#000" stroke-width="2" fill="none" d="M 777 195 C 833 195 834 466 890 466"></path><path stroke="#000" stroke-width="2" fill="none" d="M 617 138 C 632 138 633 195 648 195"></path><path stroke="#800" stroke-width="2" fill="none" d="M 485 113 C 501 113 501 161 517 161"></path><path stroke="#800" stroke-width="2" fill="none" d="M 333 134 C 345 134 346 113 358 113"></path><path stroke="#080" stroke-width="2" fill="none" d="M 150 114 C 160 114 160 157 170 157"></path><path stroke="#000" stroke-width="2" fill="none" d="M 416 284 C 532 284 532 195 648 195"></path><path stroke="#008" stroke-width="2" fill="none" d="M 311 238 C 285 238 285 412 300 412"></path><path stroke="#088" stroke-width="2" fill="none" d="M 101 236 C 48 236 48 429 63 429"></path><path stroke="#088" stroke-width="2" fill="none" d="M 590 415 C 617 415 618 434 645 434"></path><path stroke="#088" stroke-width="2" fill="none" d="M 590 461 C 617 461 618 434 645 434"></path><path stroke="#808" stroke-width="2" fill="none" d="M 779 46 C 818 46 819 152 858 152"></path><path stroke="#000" stroke-width="2" fill="none" d="M 777 195 C 817 195 818 175 858 175"></path><path stroke="#000" stroke-width="2" fill="none" d="M 777 195 C 817 195 818 221 858 221"></path><path stroke="#000" stroke-width="2" fill="none" d="M 777 195 C 804 195 804 334 789 334"></path><path stroke="#088" stroke-width="2" fill="none" d="M 794 434 C 809 434 809 357 789 357"></path></svg><div class="table" style="z-index: 9; left: 648px; top: 161px;"><table><thead><tr><td class="title" colspan="2">morimoris</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">name</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">user_id</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 10; left: 645px; top: 400px;"><table><thead><tr><td class="title" colspan="2">users</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">name</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">email</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">encrypted_password</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">introduction</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">icon_image</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 12; left: 890px; top: 386px;"><table><thead><tr><td class="title" colspan="2">morimori_images</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">picture</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">morimori_id</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 4; left: 517px; top: 81px;"><table><thead><tr><td class="title" colspan="2">cooks</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">morimori_id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">foodstuff_id</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 3; left: 358px; top: 79px;"><table><thead><tr><td class="title" colspan="2">foodstuffs</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">name</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 2; left: 170px; top: 77px;"><table><thead><tr><td class="title" colspan="2" title="中間テーブル">best_foodstuffs</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">foodstuff_id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">seasons_id</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 15; left: 36px; top: 80px;"><table><thead><tr><td class="title" colspan="2">seasons</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">name</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 8; left: 311px; top: 204px;"><table><thead><tr><td class="title" colspan="2">makes</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">content</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">morimori_id</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 7; left: 300px; top: 332px;"><table><thead><tr><td class="title" colspan="2">make_images</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">picture</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">make_id</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 5; left: 101px; top: 202px;"><table><thead><tr><td class="title" colspan="2" title="">sites</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">name</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 6; left: 63px; top: 303px;"><table><thead><tr><td class="title" colspan="2" title="">site_infomations</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">title</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">url</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">url_image</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">site_id</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 11; left: 473px; top: 358px;"><table><thead><tr><td class="title" colspan="2" title="">follows</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">followable_id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">followable_type</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">follower_id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">follower_type</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">blocked</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 1; left: 664px; top: 12px;"><table><thead><tr><td class="title" colspan="2" title="">tags</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">name</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">taggings_count</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 14; left: 858px; top: 95px;"><table><thead><tr><td class="title" colspan="2" title="">taggings</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">tag_id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">taggable_id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">taggable_type</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">tagger_id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">tagger_type</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(255, 200, 200);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">context</div></td><td class="typehint"></td></tr></tbody></table></div><div class="table" style="z-index: 13; left: 695px; top: 277px;"><table><thead><tr><td class="title" colspan="2" title="">likes</td></tr></thead><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title primary key">id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">morimori_id</div></td><td class="typehint"></td></tr></tbody><tbody title="" style="background-color: rgb(238, 238, 170);"><tr><td><div class="selected" style="display: none;">»&nbsp;</div><div class="title">user_id</div></td><td class="typehint"></td></tr></tbody></table></div></div>
+
+	<div id="controls" style="z-index: 20;">
+		<div id="bar" style="overflow: hidden; height: 15px;">
+			<div id="toggle" class="off"></div>
+			<input type="button" id="saveload" value="Save / Load">
+
+			<hr>
+
+			<input type="button" id="addtable" value="Add table">
+			<input type="button" id="edittable" value="Edit table" disabled="">
+			<input type="button" id="tablekeys" value="Keys" disabled="">
+			<input type="button" id="removetable" value="Remove table" disabled="">
+			<input type="button" id="aligntables" value="Align tables">
+			<input type="button" id="cleartables" value="Clear tables">
+		
+			<hr>
+		
+			<input type="button" id="addrow" value="Add field" disabled="">
+			<input type="button" id="editrow" value="Edit field" disabled="">
+			<input type="button" id="uprow" class="small" value="Up" disabled=""><input type="button" id="downrow" class="small" value="Down" disabled="">
+			<input type="button" id="foreigncreate" value="Create foreign key" disabled="">
+			<input type="button" id="foreignconnect" value="Connect foreign key" disabled="">
+			<input type="button" id="foreigndisconnect" value="Remove foreign key" disabled="">
+			<input type="button" id="removerow" value="Remove field" disabled="">
+		
+			<hr>
+		
+			<input type="button" id="options" value="Options">
+			<a href="https://github.com/ondras/wwwsqldesigner/wiki" target="_blank"><input type="button" id="docs" value="Documentation"></a>
+		</div>
+	
+		<div id="rubberband" style="left: 509px; top: 311px; width: 0px; height: 0px; visibility: hidden;"></div>
+
+		<div id="minimap" style=""><div class="port" style="z-index: 1; width: 36px; height: 16px; left: 0px; top: 0px;"></div><div class="mini" style="width: 4px; height: 3px; left: 22px; top: 0px;"></div><div class="mini" style="width: 5px; height: 3px; left: 6px; top: 3px;"></div><div class="mini" style="width: 4px; height: 2px; left: 12px; top: 3px;"></div><div class="mini" style="width: 3px; height: 3px; left: 17px; top: 3px;"></div><div class="mini" style="width: 3px; height: 2px; left: 3px; top: 7px;"></div><div class="mini" style="width: 6px; height: 5px; left: 2px; top: 10px;"></div><div class="mini" style="width: 5px; height: 3px; left: 10px; top: 11px;"></div><div class="mini" style="width: 4px; height: 3px; left: 10px; top: 7px;"></div><div class="mini" style="width: 4px; height: 3px; left: 22px; top: 5px;"></div><div class="mini" style="width: 5px; height: 5px; left: 22px; top: 13px;"></div><div class="mini" style="width: 4px; height: 5px; left: 16px; top: 12px;"></div><div class="mini" style="width: 6px; height: 3px; left: 30px; top: 13px;"></div><div class="mini" style="width: 3px; height: 3px; left: 23px; top: 9px;"></div><div class="mini" style="width: 4px; height: 6px; left: 29px; top: 3px;"></div><div class="mini" style="width: 4px; height: 2px; left: 1px; top: 3px;"></div></div>
+	
+		<div id="background" style="width: 1192px; height: 591px; left: 0px; top: 0px; visibility: hidden;"></div>
+	
+		<div id="window" style="left: 233px; top: 76px; visibility: hidden;">
+			<div id="windowtitle"><img id="throbber" src="./ER図_files/throbber.gif" alt="Please wait..." title="Please wait..." style="visibility: hidden;">Save / Load</div>
+			<div id="windowcontent"><div id="io">
+		<table>
+			<tbody>
+				<tr>
+					<td style="width:60%">
+						<fieldset>
+							<legend id="client">Client</legend>
+							<div id="singlerow">
+							<input type="button" id="clientsave" value="Save XML"> 
+							<input type="button" id="clientload" value="Load XML">
+							</div>
+							<div id="singlerow">
+							<input type="button" id="clientlocalsave" value="Save in Browser">
+							<input type="button" id="clientlocalload" value="Load from Browser">
+							<input type="button" id="clientlocallist" value="List from Browser">
+							</div>
+							<div id="singlerow">
+								<input type="button" id="dropboxsave" value="Save to Dropbox" style="display: none;"><!-- may get hidden by dropBoxInit() -->
+								<input type="button" id="dropboxload" value="Load from Dropbox" style="display: none;"><!-- may get hidden by dropBoxInit() -->
+								<input type="button" id="dropboxlist" value="List from Dropbox" style="display: none;"><!-- may get hidden by dropBoxInit() -->
+							</div>
+							<hr>
+							<input type="button" id="clientsql" value="Generate SQL (mysql)">
+						</fieldset>
+					</td>
+					<td style="width:40%">
+						<fieldset>
+							<legend id="server">Server</legend>
+							<label for="backend" id="backendlabel">Server backend:</label> <select id="backend"><option value="php-mysql">php-mysql</option></select>
+							<hr>
+							<input type="button" id="serversave" value="Save"> 
+							<input type="button" id="quicksave" value="Quicksave (F2)"> 
+							<input type="button" id="serverload" value="Load"> 
+							<input type="button" id="serverlist" value="List items"> 
+							<input type="button" id="serverimport" value="Import from DB"> 
+						</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<fieldset>
+							<legend id="output">Input / Output</legend>
+							<textarea id="textarea" rows="1" cols="1"></textarea><!--modified by javascript later-->
+						</fieldset>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div></div>
+			<input type="button" id="windowok" value="OK">
+			<input type="button" id="windowcancel" value="Cancel" style="visibility: hidden;">
+		</div>
+	</div> <!-- #controls -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<script type="text/javascript">
+		var d = new SQL.Designer();
+	</script>
+
+
+<div id="UMS_TOOLTIP" style="position: absolute; cursor: pointer; z-index: 2147483647; background: transparent; top: -100000px; left: -100000px;"></div></body><umsdataelement id="UMSSendDataEventElement"></umsdataelement></html>

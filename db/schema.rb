@@ -10,7 +10,86 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180505092039) do
+ActiveRecord::Schema.define(version: 20180509114854) do
+
+  create_table "best_foodstuffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "season_id"
+    t.integer  "foodstuff_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["foodstuff_id"], name: "index_best_foodstuffs_on_foodstuff_id", using: :btree
+    t.index ["season_id"], name: "index_best_foodstuffs_on_season_id", using: :btree
+  end
+
+  create_table "cooks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "morimori_id"
+    t.integer  "foodstuff_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["foodstuff_id"], name: "index_cooks_on_foodstuff_id", using: :btree
+    t.index ["morimori_id"], name: "index_cooks_on_morimori_id", using: :btree
+  end
+
+  create_table "foodstuffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "make_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "picture",    null: false
+    t.integer  "make_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["make_id"], name: "index_make_images_on_make_id", using: :btree
+  end
+
+  create_table "makes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "content",     limit: 65535, null: false
+    t.integer  "morimori_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["morimori_id"], name: "index_makes_on_morimori_id", using: :btree
+  end
+
+  create_table "morimori_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "picture",     null: false
+    t.integer  "morimori_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["morimori_id"], name: "index_morimori_images_on_morimori_id", using: :btree
+  end
+
+  create_table "morimoris", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_morimoris_on_name", using: :btree
+    t.index ["user_id"], name: "index_morimoris_on_user_id", using: :btree
+  end
+
+  create_table "seasons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "site_infomations", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title",      null: false
+    t.string   "url",        null: false
+    t.string   "url_image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "site_id"
+    t.index ["site_id"], name: "index_site_infomations_on_site_id", using: :btree
+  end
+
+  create_table "sites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                                              null: false

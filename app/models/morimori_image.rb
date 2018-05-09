@@ -1,0 +1,2 @@
+class MorimoriImage < ApplicationRecord
+end

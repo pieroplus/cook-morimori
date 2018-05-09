@@ -1,0 +1,2 @@
+class BestFoodstuff < ApplicationRecord
+end
