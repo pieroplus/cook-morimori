@@ -10,15 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180509114854) do
+ActiveRecord::Schema.define(version: 20180510115309) do
 
   create_table "best_foodstuffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "season_id"
     t.integer  "foodstuff_id"
+    t.integer  "season_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["foodstuff_id"], name: "index_best_foodstuffs_on_foodstuff_id", using: :btree
     t.index ["season_id"], name: "index_best_foodstuffs_on_season_id", using: :btree
+  end
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", using: :btree
   end
 
   create_table "cooks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -30,10 +37,21 @@ ActiveRecord::Schema.define(version: 20180509114854) do
     t.index ["morimori_id"], name: "index_cooks_on_morimori_id", using: :btree
   end
 
+  create_table "foodstuff_makes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "foodstuff_id"
+    t.integer  "make_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["foodstuff_id"], name: "index_foodstuff_makes_on_foodstuff_id", using: :btree
+    t.index ["make_id"], name: "index_foodstuff_makes_on_make_id", using: :btree
+  end
+
   create_table "foodstuffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",        null: false
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_foodstuffs_on_category_id", using: :btree
   end
 
   create_table "make_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
