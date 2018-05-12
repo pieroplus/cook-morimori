@@ -1,29 +1,46 @@
 .contents{
-  height: 100px;
-  background-color: $color-light-green;
+  height: 1000px;
+  @include mixin-headerfix;
+  background-color: $color-white-gray;
   .left{
      &__box{
-      background-color: $color-white;
-      border: solid 1px $color-light-orange;
-      border-radius: 10px;
-      width: 98%;
-      margin: 10px 0 0 10px;
+       @include mixin-mainbox;
        &__title{
       }
     }
   }
   .center{
     &__box{
-      background-color: $color-white;
-      width: 98%;
-      margin: 10px 0 0 10px;
+       @include mixin-mainbox;
     }
   }
   .right{
     &__box{
-      background-color: $color-white;
-      width: 98%;
-      margin: 10px 0 0 10px;
+       @include mixin-mainbox;
+       // background-color: $color-light-yellow;
+      &__title{
+        font-size: 22px;
+        color: $color-green;
+        text-aline: center;
+      }
+      &__subtitle{
+        @include clearfix();
+        padding-top: 15px;
+        &__image{
+          heigth: 25px;
+          width: 25px;
+          float: left;
+        }
+        &__category{
+          font-size: 18px;
+          color: $color-green;
+          float: left;
+          margin: 2px 0 0 5px;
+        }
+      }
+      &__foodstuff{
+        padding-left: 10px;
+      }
     }
   }
 }

@@ -9,14 +9,33 @@
       </div>
     </div>
   </div>
-  <div class="center col-sm-5 col-md-5">
+  <div class="center col-sm-6 col-md-6">
     <div class="center__box">
       <h4>本日のおすすめ料理</h4>
     </div>
   </div>
-  <div class="right col-sm-4 col-md-4">
+  <div class="right col-sm-3 col-md-3">
     <div class="right__box">
-      <h4>旬の食材</h4>
+      <p class="right__box__title">旬の食材情報</p>
+      <p><%= @date %>、季節は<%= @season %>です。</p>
+      <%= @month.name %>月の旬の食材</br>
+      <% @categorys.each do |category| %>
+        <div class="right__box__subtitle clearfix">
+          <%= image_tag("#{category.name}.png", class:"right__box__subtitle__image") %><p class="right__box__subtitle__category"><%= category.name %></p>
+        </div>
+        <% foodstuffs = @vegetables if category.id == 1 %>
+        <% foodstuffs = @furits     if category.id == 2 %>
+        <% foodstuffs = @fishes     if category.id == 3 %>
+        <% foodstuffs = @seafoods   if category.id == 4 %>
+        <% foodstuffs = @others     if category.id == 5 %>
+        <div class="right__box__foodstuff">
+          <% Array(foodstuffs).each do |foodstuff| %>
+            <%= link_to "#{foodstuff.name}", '/' %></br>
+          <% end %>
+          <%= link_to "旬の#{category.name}一覧", '/' %>   <%= link_to "#{category.name}一覧", '/' %>
+        </div>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>
