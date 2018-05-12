@@ -1,7 +1,17 @@
 .contents{
   height: 1000px;
   @include mixin-headerfix;
-  background-color: $color-white-gray;
+  background-color: $color-light-gray;
+  .top{
+    &__title{
+      font-size: 120px;
+      font-weight: bold;
+      color: $color-white;
+      text-shadow: $color-orange 2px 2px;
+      background-image: url(top.png);
+      margin:10px 16px;
+    }
+  }
   .left{
      &__box{
        @include mixin-mainbox;
@@ -17,7 +27,7 @@
   .right{
     &__box{
        @include mixin-mainbox;
-       // background-color: $color-light-yellow;
+       background-color: $color-light-yellow;
       &__title{
         font-size: 22px;
         color: $color-green;
