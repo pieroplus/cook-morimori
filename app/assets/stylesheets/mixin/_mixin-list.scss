@@ -1,9 +1,17 @@
-// リンク付き文字の修正
-@mixin mixin-link{
-  color: $color-white;
-  text-decoration: none;
-  border-bottom: solid 1px #330033;
+// ボックスの枠線
+@mixin mixin-mainbox{
+  background-color: $color-white;
+  border: solid 1px $color-orange;
+  border-radius: 5px;
+  width: 98%;
+  margin: 10px 0 0 10px;
+  padding:10px;
 };
+
+// ヘッダー固定によるずれの修正
+@mixin mixin-headerfix{
+  padding-top: 60px;
+}
 
 //clearfix
 @mixin clearfix() {
