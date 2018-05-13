@@ -7,18 +7,51 @@
     <div class="left__box">
       <h4 class="left__title">他サイト様おすすめ料理</h4>
       <div class="left__box1">
-        <a href="http://cookpad.com/?utm_source=link_banner&utm_medium=link_banner&utm_content=bnr200x40" target="_blank"><img src="http://cookpad.com/assets/widget/cookpad_banner_l.gif" alt="レシピ検索No.1 料理レシピ載せるなら クックパッド" width="200" height="40"></a>
+
       </div>
       <div class="left__box2">
       </div>
     </div>
   </div>
-  <div class="center col-sm-6 col-md-6">
+  <div class="center col-sm-5 col-md-5">
     <div class="center__box">
-      <h4>本日のおすすめ料理</h4>
+      <div class="search clearfix">
+        <form class="search__form">
+          <input type="text" placeholder="キーワード検索 （例：夏 豚肉）" class="search__form__keyword">
+          <button type="button" class="img-circle search__form__btn btn-primary btn-sm btn-success" data-toggle="modal" data-target="#input">詳細検索</button>
+        </form>
+      </div>
+      <div class="center__box__main clearfix">
+        <p class="center__box__main__title">本日のおすすめ料理</p>
+        <% @recommend_foods.each do |recommend_food| %>
+        <div class="recommend">
+          <div class="recommend__morimori">
+            <%= link_to '/' do %>
+              <div class="recommend__morimori__name">
+                <%= recommend_food.name %>
+              </div>
+              <div class="recommend__morimori__picture">
+                <%= image_tag recommend_food.image.url, class:"recommend__morimori__picture__image" %>
+              </div>
+            <% end %>
+          </div>
+          <div class="recommend__creater">
+            投稿者<br>
+            <%= link_to '/' do %>
+              <%= image_tag recommend_food.user.icon_image.url, class:"recommend__creater__image" %>
+              <%= recommend_food.user.name %>さん
+            <% end %>
+              <%= recommend_food.user.introduction %>
+            <%= link_to "フォローする", class: "recommend__creater__follow" %>
+          </div>
+          <div class="border">
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div class="right col-sm-3 col-md-3">
+  <div class="right col-sm-4 col-md-4">
     <div class="right__box">
       <p class="right__box__title">旬の食材情報</p>
       <p><%= @date %>、季節は<%= @season %>です。</p>
@@ -28,18 +61,30 @@
           <%= image_tag("#{category.name}.png", class:"right__box__subtitle__image") %><p class="right__box__subtitle__category"><%= category.name %></p>
         </div>
         <% foodstuffs = @vegetables if category.id == 1 %>
-        <% foodstuffs = @furits     if category.id == 2 %>
+        <% foodstuffs = @fruits     if category.id == 2 %>
         <% foodstuffs = @fishes     if category.id == 3 %>
         <% foodstuffs = @seafoods   if category.id == 4 %>
         <% foodstuffs = @others     if category.id == 5 %>
         <div class="right__box__foodstuff">
           <% Array(foodstuffs).each do |foodstuff| %>
-            <%= link_to "#{foodstuff.name}", '/' %></br>
+            <%= link_to "#{foodstuff.name}", '/' %>
           <% end %>
-          <%= link_to "旬の#{category.name}一覧", '/' %>   <%= link_to "#{category.name}一覧", '/' %>
+          <br><%= link_to "旬の#{category.name}一覧", '/' %>   <%= link_to "#{category.name}一覧", '/' %>
         </div>
       <% end %>
       </div>
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="input" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+        <h4 class="modal-title">条件を指定して検索する</h4>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,2 @@
+class MorimorisFoodstuff < ApplicationRecord
+end
