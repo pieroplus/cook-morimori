@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180510115309) do
+ActiveRecord::Schema.define(version: 20180513053605) do
 
   create_table "best_foodstuffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "foodstuff_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20180510115309) do
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "month"
     t.index ["category_id"], name: "index_foodstuffs_on_category_id", using: :btree
   end
 
@@ -64,6 +65,7 @@ ActiveRecord::Schema.define(version: 20180510115309) do
 
   create_table "makes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",     limit: 65535, null: false
+    t.string   "image"
     t.integer  "morimori_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -80,11 +82,21 @@ ActiveRecord::Schema.define(version: 20180510115309) do
 
   create_table "morimoris", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
+    t.string   "image"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_morimoris_on_name", using: :btree
     t.index ["user_id"], name: "index_morimoris_on_user_id", using: :btree
+  end
+
+  create_table "morimoris_foodstuffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "morimori_id"
+    t.integer  "foodstuff_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["foodstuff_id"], name: "index_morimoris_foodstuffs_on_foodstuff_id", using: :btree
+    t.index ["morimori_id"], name: "index_morimoris_foodstuffs_on_morimori_id", using: :btree
   end
 
   create_table "seasons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
