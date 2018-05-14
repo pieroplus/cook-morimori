@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180513053605) do
+ActiveRecord::Schema.define(version: 20180514141114) do
 
   create_table "best_foodstuffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "foodstuff_id"
@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 20180513053605) do
   create_table "foodstuffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",        null: false
     t.integer  "category_id"
+    t.integer  "month"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "month"
     t.index ["category_id"], name: "index_foodstuffs_on_category_id", using: :btree
   end
 
@@ -81,11 +81,13 @@ ActiveRecord::Schema.define(version: 20180513053605) do
   end
 
   create_table "morimoris", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       null: false
+    t.string   "name",         null: false
     t.string   "image"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "mainsub_id"
+    t.string   "mainsub_name"
     t.index ["name"], name: "index_morimoris_on_name", using: :btree
     t.index ["user_id"], name: "index_morimoris_on_user_id", using: :btree
   end

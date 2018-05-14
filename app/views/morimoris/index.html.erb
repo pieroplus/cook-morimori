@@ -3,17 +3,7 @@
     <h1 class="top__title"><br>COOK<br>
       MORIMORI<br></h1>
   </div>
-  <div class="left col-sm-3 col-md-3">
-    <div class="left__box">
-      <h4 class="left__title">他サイト様おすすめ料理</h4>
-      <div class="left__box1">
-
-      </div>
-      <div class="left__box2">
-      </div>
-    </div>
-  </div>
-  <div class="center col-sm-5 col-md-5">
+  <div class="center col-sm-9 col-md-9">
     <div class="center__box">
       <div class="search clearfix">
         <form class="search__form">
@@ -22,36 +12,65 @@
         </form>
       </div>
       <div class="center__box__main clearfix">
-        <p class="center__box__main__title">本日のおすすめ料理</p>
-        <% @recommend_foods.each do |recommend_food| %>
-        <div class="recommend">
-          <div class="recommend__morimori">
-            <%= link_to '/' do %>
-              <div class="recommend__morimori__name">
-                <%= recommend_food.name %>
-              </div>
-              <div class="recommend__morimori__picture">
-                <%= image_tag recommend_food.image.url, class:"recommend__morimori__picture__image" %>
-              </div>
-            <% end %>
-          </div>
-          <div class="recommend__creater">
-            投稿者<br>
-            <%= link_to '/' do %>
-              <%= image_tag recommend_food.user.icon_image.url, class:"recommend__creater__image" %>
-              <%= recommend_food.user.name %>さん
-            <% end %>
-              <%= recommend_food.user.introduction %>
-            <%= link_to "フォローする", class: "recommend__creater__follow" %>
-          </div>
-          <div class="border">
-          </div>
+        <div class="center__box__main__title">
+          本日のおすすめ料理 <%= link_to "更新", '/', class:"btn" %>
         </div>
+        <div class="center__box__main__sub col-sm-6 col-md-6">
+          副菜
+        <% @recommend_subfoods.each do |recommend_subfood| %>
+          <div class="recommend__sub">
+            <div class="recommend__sub__morimori">
+              <%= link_to '/' do %>
+                <div class="recommend__sub__morimori__name">
+                  <%= recommend_subfood.name %>
+                </div>
+                <div class="recommend__sub__morimori__picture">
+                  <%= image_tag recommend_subfood.image.url, class:"recommend__sub__morimori__picture__image" %>
+                </div>
+              <% end %>
+            </div>
+            <div class="recommend__sub__creater">
+              投稿者<br>
+              <%= link_to '/' do %>
+                <%= image_tag recommend_subfood.user.icon_image.url, class:"recommend__sub__creater__image" %>
+                <%= recommend_subfood.user.name %>さん
+              <% end %>
+              <%= recommend_subfood.user.introduction %>
+              <%= link_to "フォローする", class: "recommend__sub__creater__follow" %>
+            </div>
+          </div>
         <% end %>
+        </div>
+        <div class="center__box__main__main col-sm-6 col-md-6">
+          主菜
+        <% @recommend_mainfoods.each do |recommend_mainfood| %>
+          <div class="recommend__main">
+            <div class="recommend__main__morimori">
+              <%= link_to '/' do %>
+                <div class="recommend__main__morimori__name">
+                  <%= recommend_mainfood.name %>
+                </div>
+                <div class="recommend__main__morimori__picture">
+                  <%= image_tag recommend_mainfood.image.url, class:"recommend__main__morimori__picture__image" %>
+                </div>
+              <% end %>
+            </div>
+            <div class="recommend__main__creater">
+              投稿者<br>
+              <%= link_to '/' do %>
+                <%= image_tag recommend_mainfood.user.icon_image.url, class:"recommend__main__creater__image" %>
+                <%= recommend_mainfood.user.name %>さん
+              <% end %>
+              <%= recommend_mainfood.user.introduction %>
+              <%= link_to "フォローする", class: "recommend__main__creater__follow" %>
+            </div>
+          </div>
+        <% end %>
+        </div>
       </div>
     </div>
   </div>
-  <div class="right col-sm-4 col-md-4">
+  <div class="right col-sm-3 col-md-3">
     <div class="right__box">
       <p class="right__box__title">旬の食材情報</p>
       <p><%= @date %>、季節は<%= @season %>です。</p>

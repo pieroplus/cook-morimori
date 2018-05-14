@@ -11,8 +11,8 @@ class MorimorisController < ApplicationController
     @others     = @month.foodstuffs.where(category_id: @other).order('id ASC').limit(7)
     @categorys  = Category.all.order('id ASC')
     # 本日のおすすめ料理検索
-    @recommend_foods = @morimoris.includes(:user).order("RAND()").limit(2)
-
+    @recommend_mainfoods = @morimoris.includes(:user).where(mainsub_id: 1).order("RAND()").limit(2)
+    @recommend_subfoods = @morimoris.includes(:user).where(mainsub_id: 2).order("RAND()").limit(2)
   end
 
   private
