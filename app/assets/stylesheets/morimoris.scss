@@ -7,21 +7,14 @@
       font-size: 120px;
       font-weight: bold;
       color: $color-white;
-      text-shadow: $color-orange 2px 2px;
+      text-shadow: $color-orange 5px 5px;
       background-image: url(top.png);
       margin:10px 16px;
     }
   }
-  .left{
-     &__box{
-       @include mixin-mainbox;
-       &__title{
-      }
-    }
-  }
   .center{
     &__box{
-      @include mixin-mainbox;
+    @include mixin-mainbox;
       .search{
         @include clearfix();
         padding-bottom: 8px;
@@ -56,30 +49,66 @@
           color: $color-green;
         }
         .recommend{
-          padding-bottom: 10px;
-          border-bottom: solid 2px $color-light-gray;
-          &__morimori{
-            padding-top: 10px;
-            &__name{
+          &__sub{
+            padding: 10px 20px;
+            border-bottom: solid 2px $color-orange;
+            box-shadow: $color-orange 2px 2px;
+            background-color: $color-light-green;
+            border-radius: 10px;
+            &__morimori{
+              padding-top: 10px;
+              &__name{
+              }
+              &__picture{
+                &__image{
+                  width: 100%;
+                  height: 350px;
+                }
+              }
             }
-            &__picture{
+            &__creater{
+              margin-top: 10px;
+              border-radius: 15px;
+              border: solid $color-orange 1px;
+              box-shadow: $color-orange 2px 2px;
+              padding: 10px;
               &__image{
-                width: 100%;
-                height: 350px;
+                width: 20px;
+                height: 20px;
+              }
+              &__follow{
               }
             }
           }
-          &__creater{
-            margin-top: 10px;
-            border-radius: 15px;
-            border: solid $color-orange 1px;
+          &__main{
+            padding: 10px 20px;
+            border-bottom: solid 2px $color-orange;
+            background-color: $color-light-pink;
+            border-radius: 10px;
             box-shadow: $color-orange 2px 2px;
-            padding: 10px;
-            &__image{
-              width: 20px;
-              height: 20px;
+            &__morimori{
+              padding-top: 10px;
+              &__name{
+              }
+              &__picture{
+                &__image{
+                  width: 100%;
+                  height: 350px;
+                }
+              }
             }
-            &__follow{
+            &__creater{
+              margin-top: 10px;
+              border-radius: 15px;
+              border: solid $color-orange 1px;
+              box-shadow: $color-orange 2px 2px;
+              padding: 10px;
+              &__image{
+                width: 20px;
+                height: 20px;
+              }
+              &__follow{
+              }
             }
           }
         }
