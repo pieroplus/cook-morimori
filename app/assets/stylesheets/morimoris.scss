@@ -143,5 +143,42 @@
         padding-left: 10px;
       }
     }
+    &__user{
+       @include mixin-mainbox;
+       padding: 10px;
+       background-color: $color-light-yellow;
+      &__title{
+        font-size: 22px;
+        color: $color-green;
+      }
+      &__info{
+        margin-top: 10px;
+        border-radius: 15px;
+        border: solid $color-orange 1px;
+        box-shadow: $color-orange 2px 2px;
+        padding: 10px;
+        @include clearfix();
+        &__picture{
+          float: left;
+          &__image{
+            width: 60px;
+            height: 60px;
+          }
+        }
+        &__name{
+          // float: left;
+          margin-left: 5px;
+        }
+        &__count{
+          // float: left;
+          margin-left: 5px;
+        }
+        &__introduction{
+
+        }
+        &__follow{
+        }
+      }
+    }
   }
 }

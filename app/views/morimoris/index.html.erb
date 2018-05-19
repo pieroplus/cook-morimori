@@ -92,6 +92,25 @@
         </div>
       <% end %>
       </div>
+      <div class="right__user">
+        <p class="right__user__title">おすすめ投稿者</p>
+        <% @recommend_users.each do |user| %>
+          <div class="right__user__info">
+            <%= link_to '/' do %>
+              <div class="right__user__info__picture">
+                <%= image_tag user.icon_image.url, class:"right__user__info__picture__image" %>
+              </div>
+              <div class="right__user__info__name">
+                <p><%= user.name %>さん 投稿数:<%=user.morimoris_count %>件</p>
+              </div>
+            <% end %>
+            <div class="right__user__info__introduction">
+              <%= user.introduction %>
+            </div>
+            <%= link_to "フォローする", class: "right__user__info__follow" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
