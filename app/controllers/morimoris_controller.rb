@@ -1,7 +1,7 @@
 class MorimorisController < ApplicationController
   before_action :get_category
   before_action :get_best_foodstuffs
-  before_action :get_users
+  # before_action :get_users
 
   def index
     # 旬の食材検索
@@ -14,6 +14,7 @@ class MorimorisController < ApplicationController
     # 本日のおすすめ料理検索
     @recommend_mainfoods = @morimoris.includes(:user).where(mainsub_id: 1).order("RAND()").limit(2)
     @recommend_subfoods  = @morimoris.includes(:user).where(mainsub_id: 2).order("RAND()").limit(2)
+    #おすすめユーザ検索
     @recommend_users     = User.where.not(id: current_user.id).order("morimoris_count DESC").limit(5)
   end
 
