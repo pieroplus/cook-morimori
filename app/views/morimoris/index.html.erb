@@ -1,135 +1,114 @@
-<div class="contents">
-  <div class="top col-sm-12 col-md-12">
-    <h1 class="top__title"><br>COOK<br>
-      MORIMORI<br></h1>
-  </div>
-  <div class="center col-sm-9 col-md-9">
-    <div class="center__box">
-      <div class="search clearfix">
-        <form class="search__form">
-          <input type="text" placeholder="キーワード検索 （例：夏 豚肉）" class="search__form__keyword">
-          <button type="button" class="img-circle search__form__btn btn-primary btn-sm btn-success" data-toggle="modal" data-target="#input">詳細検索</button>
-        </form>
-      </div>
-      <div class="center__box__main clearfix">
-        <div class="center__box__main__title">
-          本日のおすすめ料理 <%= link_to "更新", '/', class:"btn" %>
-        </div>
-        <div class="center__box__main__sub col-sm-6 col-md-6">
-          副菜
-        <% @recommend_subfoods.each do |recommend_subfood| %>
-          <div class="recommend__sub">
-            <div class="recommend__sub__morimori">
-              <%= link_to '/' do %>
-                <div class="recommend__sub__morimori__name">
-                  <%= recommend_subfood.name %>
-                </div>
-                <div class="recommend__sub__morimori__picture">
-                  <%= image_tag recommend_subfood.image.url, class:"recommend__sub__morimori__picture__image" %>
-                </div>
-              <% end %>
-            </div>
-            <div class="recommend__sub__creater">
-              投稿者<br>
-              <%= link_to '/' do %>
-                <%= image_tag recommend_subfood.user.icon_image.url, class:"recommend__sub__creater__image" %>
-                <%= recommend_subfood.user.name %>さん
-              <% end %>
-              <%= recommend_subfood.user.introduction %>
-              <%= link_to "フォローする", class: "recommend__sub__creater__follow" %>
-            </div>
-          </div>
-        <% end %>
-        </div>
-        <div class="center__box__main__main col-sm-6 col-md-6">
-          主菜
-        <% @recommend_mainfoods.each do |recommend_mainfood| %>
-          <div class="recommend__main">
-            <div class="recommend__main__morimori">
-              <%= link_to '/' do %>
-                <div class="recommend__main__morimori__name">
-                  <%= recommend_mainfood.name %>
-                </div>
-                <div class="recommend__main__morimori__picture">
-                  <%= image_tag recommend_mainfood.image.url, class:"recommend__main__morimori__picture__image" %>
-                </div>
-              <% end %>
-            </div>
-            <div class="recommend__main__creater">
-              投稿者<br>
-              <%= link_to '/' do %>
-                <%= image_tag recommend_mainfood.user.icon_image.url, class:"recommend__main__creater__image" %>
-                <%= recommend_mainfood.user.name %>さん
-              <% end %>
-              <%= recommend_mainfood.user.introduction %>
-              <%= link_to "フォローする", class: "recommend__main__creater__follow" %>
-            </div>
-          </div>
-        <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="right col-sm-3 col-md-3">
-    <div class="right__box">
-      <p class="right__box__title">旬の食材情報</p>
-      <p><%= @date %>、季節は<%= @season %>です。</p>
-      <%= @month.name %>月の旬の食材</br>
-      <% @categorys.each do |category| %>
-        <div class="right__box__subtitle clearfix">
-          <%= image_tag("#{category.name}.png", class:"right__box__subtitle__image") %><p class="right__box__subtitle__category"><%= category.name %></p>
-        </div>
-        <% foodstuffs = @vegetables if category.id == 1 %>
-        <% foodstuffs = @fruits     if category.id == 2 %>
-        <% foodstuffs = @fishes     if category.id == 3 %>
-        <% foodstuffs = @seafoods   if category.id == 4 %>
-        <% foodstuffs = @others     if category.id == 5 %>
-        <div class="right__box__foodstuff">
-          <% Array(foodstuffs).each do |foodstuff| %>
-            <%= link_to "#{foodstuff.name}", '/' %>
-          <% end %>
-          <br><%= link_to "旬の#{category.name}一覧", '/' %>   <%= link_to "#{category.name}一覧", '/' %>
-        </div>
-      <% end %>
-      </div>
-      <div class="right__user">
-        <p class="right__user__title">おすすめ投稿者</p>
-        <% @recommend_users.each do |user| %>
-          <div class="right__user__info">
-            <%= link_to '/' do %>
-              <div class="right__user__info__picture">
-                <%= image_tag user.icon_image.url, class:"right__user__info__picture__image" %>
-              </div>
-              <div class="right__user__info__name">
-                <p><%= user.name %>さん 投稿数:<%=user.morimoris_count %>件</p>
-              </div>
-            <% end %>
-            <div class="right__user__info__introduction">
-              <%= user.introduction %>
-            </div>
-            <%= link_to "フォローする", class: "right__user__info__follow" %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-<footer>
-    <ol class="breadcrumb">
-      <li><a href="#">ホーム</a></li>
-      <li><a href="#">このサイトについて</a></li>
-      <li><a href="#">お問い合わせ</a></li>
+<div class="top">
+  <div id="carousel-content" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-content" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-content" data-slide-to="1"></li>
+      <li data-target="#carousel-content" data-slide-to="2"></li>
     </ol>
-    <p>© 2018 Hiroki Kusumoto</p>
-</footer>
-
-<div class="modal fade" id="input" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-        <h4 class="modal-title">条件を指定して検索する</h4>
+    <div class="carousel-inner">
+      <div class="item active">
+        <%= image_tag('top1.png', class:"picture") %>
+        <div class="carousel-caption">
+          <h1 class="title">COOK MORIMORI</h1>
+          <p>奥様の為の献立検討サイト</p>
+          <button type="button" class="btn btn-primary">このサイトについて</button>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag('top2.png', class:"picture") %>
+        <div class="carousel-caption">
+          <h1 class="title">COOK MORIMORI</h1>
+          <p>おすすめ料理には旬の食材を利用したものが表示されます。</p>
+          <button type="button" class="btn btn-primary">旬の食材一覧</button>
+        </div>
+      </div>
+      <div class="item">
+        <%= image_tag('top3.png', class:"picture") %>
+        <div class="carousel-caption">
+          <h1 class="title">COOK MORIMORI</h1>
+          <p>さまざまなユーザーが投稿した料理の献立を見ることができます</p>
+          <button type="button" class="btn btn-primary">ユーザー一覧</button>
+        </div>
       </div>
     </div>
+    <a class="left carousel-control" href="#carousel-content" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-content" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </a>
   </div>
 </div>
-
+<div class="contents">
+  <div class="contents__recommend">
+    <p class="contents__recommend__title">本日のおすすめ料理</p>
+    <p class="contents__recommend__text">本日は<%= @date %>です。<%= @month.name %>月の旬の食材を使用した料理を表示しています。</p>
+    <p class="contents__recommend__reload"><%= link_to "おすすめ料理を更新する", '/', class:"btn btn-primary" %></p>
+    <div class="contents__recommend__sub col-sm-6 col-md-6">
+      <p class="contents__recommend__sub__title">副菜</p>
+      <% @recommend_subfoods.each do |recommend_subfood| %>
+        <%= render partial: "morimoris/shared/recommend", locals: { recommend: recommend_subfood } %>
+      <% end %>
+    </div>
+    <div class="contents__recommend__main col-sm-6 col-md-6">
+      <p class="contents__recommend__main__title">主菜</p>
+      <% @recommend_mainfoods.each do |recommend_mainfood| %>
+        <%= render partial: "morimoris/shared/recommend", locals: { recommend: recommend_mainfood } %>
+      <% end %>
+    </div>
+  </div>
+  <div class="contents__foodstuff clearfix">
+    <p class="contents__foodstuff__title">旬の食材情報</p>
+    <p class="contents__foodstuff__text">季節は<%= @season %>です。<%= @month.name %>月の旬の食材を表示しています。</p>
+    <div class="space col-sm-1 col-md-1">
+    </div>
+    <% @categorys.each do |category| %>
+      <% foodstuffs = @vegetables if category.id == 1 %>
+      <% foodstuffs = @fruits     if category.id == 2 %>
+      <% foodstuffs = @fishes     if category.id == 3 %>
+      <% foodstuffs = @seafoods   if category.id == 4 %>
+      <% foodstuffs = @others     if category.id == 5 %>
+      <div class="contents__foodstuff__category col-sm-2 col-md-2 clearfix">
+        <%= image_tag("#{category.name}.png", class:"contents__foodstuff__category__image") %><p class="contents__foodstuff__category__name"><%= category.name %></p><br>
+        <div class="contents__foodstuff__category__detail">
+          <% Array(foodstuffs).each do |foodstuff| %>
+            <%= link_to "#{foodstuff.name}", '/' %><br>
+          <% end %>
+          <%= link_to "旬の#{category.name}一覧", '/' %>   <%= link_to "#{category.name}一覧", '/' %>
+        </div>
+      </div>
+    <% end %>
+    <div class="space col-sm-1 col-md-1">
+    </div>
+  </div>
+  <div class="contents__user clearfix">
+    <p class="contents__user__title">おすすめ投稿者</p>
+    <% @recommend_users.each do |user| %>
+      <div class="contents__user__info col-sm-3 col-md-3">
+        <%= link_to '/' do %>
+          <div class="contents__user__info__main">
+            <%= image_tag user.icon_image.url, class:"contents__user__info__main__image" %>
+              <p><%= user.name %>さん</p>
+          </div>
+        <% end %>
+        <div class="contents__user__info__detail">
+          <p class="contents__user__info__count">料理投稿数: <%= user.morimoris_count %>件</p>
+          <p class="contents__user__info__introduction"><%= user.introduction %></p>
+          <% if user_signed_in? %>
+            <% unless current_user.id == user.id %>
+              <%= link_to "フォローする", '/', class:"btn btn-warning" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<footer>
+  <ol class="breadcrumb">
+    <li><a href="#">ホーム</a></li>
+    <li><a href="#">このサイトについて</a></li>
+    <li><a href="#">お問い合わせ</a></li>
+  </ol>
+  <p>© 2018 Hiroki Kusumoto</p>
+</footer>

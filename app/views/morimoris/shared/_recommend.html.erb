@@ -1,0 +1,31 @@
+<div class="recommend">
+  <div class="recommend__morimori  clearfix">
+    <%= link_to '/' do %>
+      <p class="recommend__morimori__name">料理名: <%= recommend.name %></p>
+      <div class="recommend__morimori__picture">
+        <%= image_tag recommend.image.url, class:"recommend__morimori__picture__image" %>
+      </div>
+      <div class="recommend__morimori__make">
+        <p class="recommend__morimori__make__title">作り方</p>
+        <% Make.where(morimori_id: recommend).each.with_index(1) do |make, i| %>
+          <div class="recommend__morimori__make__text">
+            <p><%= i %>. <%= make.content %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <div class="recommend__creater">
+    <p class="recommend__creater__title">投稿者</p>
+    <%= link_to '/' do %>
+      <%= image_tag recommend.user.icon_image.url, class:"recommend__creater__image" %>
+      <%= recommend.user.name %>さん
+    <% end %>
+    <%= recommend.user.introduction %>
+    <% if user_signed_in? %>
+      <% unless current_user.id == recommend.user.id %>
+        <%= link_to "フォローする", '/', class:"btn btn-warning" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

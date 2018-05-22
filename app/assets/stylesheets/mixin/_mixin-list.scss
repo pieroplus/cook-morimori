@@ -12,6 +12,13 @@
   padding-top: 60px;
 }
 
+//タイトル部分のフォント
+@mixin mixin-titlefont{
+  font-weight: bold;
+  color: $color-green;
+  text-align: center;
+}
+
 //clearfix
 @mixin clearfix() {
   &:after {
