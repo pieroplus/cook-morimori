@@ -1,183 +1,100 @@
+.title{
+  font-size: 80px;
+  font-weight: bold;
+  color: $color-white;
+  text-shadow: $color-orange 5px 5px;
+  margin:10px 16px;
+}
 .contents{
-  height: 1600px;
-  @include mixin-headerfix;
-  background-color: $color-light-gray;
-  .top{
-    &__title{
-      font-size: 120px;
-      font-weight: bold;
-      color: $color-white;
-      text-shadow: $color-orange 5px 5px;
-      background-image: url(top.png);
-      margin:10px 16px;
-    }
-  }
-  .center{
-    &__box{
+  &__recommend{
+    @include clearfix();
     @include mixin-mainbox;
-      .search{
-        @include clearfix();
-        padding-bottom: 8px;
-        border-bottom: solid 5px $color-light-gray;
-        &__form{
-          &__keyword{
-            font-size: 12px;
-            margin: 8px 30px;
-            padding: 10px 10px;
-            display: block;
-            width: 250px;
-            height: 30px;
-            border-radius: 15px;
-            outline: 0;
-            background-color: $color-light-green;
-            float: left;
-          }
-          &__btn{
-            margin: 8px 30px;
-            width: 100px;
-            float: right;
-            margin-right: 40px
-          }
-        }
+    background-color: $color-light-gray;
+    padding: 10px;
+    &__title{
+      @include mixin-titlefont;
+      font-size: 24px;
+    }
+    &__text{
+      text-align: center;
+    }
+    &__reload{
+      margin-top: 5px;
+      text-align: center;
+    }
+    &__sub{
+      &__title{
+        @include mixin-titlefont;
+        margin-top: 20px;
+        font-size: 18px;
       }
-      &__main{
-        @include clearfix();
-        padding: 10px;
-        &__title{
-          font-size: 24px;
-          font-weight: bold;
-          color: $color-green;
-        }
-        .recommend{
-          &__sub{
-            padding: 10px 20px;
-            border-bottom: solid 2px $color-orange;
-            box-shadow: $color-orange 2px 2px;
-            background-color: $color-light-green;
-            border-radius: 10px;
-            &__morimori{
-              padding-top: 10px;
-              &__name{
-              }
-              &__picture{
-                &__image{
-                  width: 100%;
-                  height: 350px;
-                }
-              }
-            }
-            &__creater{
-              margin-top: 10px;
-              border-radius: 15px;
-              border: solid $color-orange 1px;
-              box-shadow: $color-orange 2px 2px;
-              padding: 10px;
-              &__image{
-                width: 20px;
-                height: 20px;
-              }
-              &__follow{
-              }
-            }
-          }
-          &__main{
-            padding: 10px 20px;
-            border-bottom: solid 2px $color-orange;
-            background-color: $color-light-pink;
-            border-radius: 10px;
-            box-shadow: $color-orange 2px 2px;
-            &__morimori{
-              padding-top: 10px;
-              &__name{
-              }
-              &__picture{
-                &__image{
-                  width: 100%;
-                  height: 350px;
-                }
-              }
-            }
-            &__creater{
-              margin-top: 10px;
-              border-radius: 15px;
-              border: solid $color-orange 1px;
-              box-shadow: $color-orange 2px 2px;
-              padding: 10px;
-              &__image{
-                width: 20px;
-                height: 20px;
-              }
-              &__follow{
-              }
-            }
-          }
-        }
+    }
+    &__main{
+      &__title{
+        @include mixin-titlefont;
+        margin-top: 20px;
+        font-size: 18px;
       }
     }
   }
-  .right{
-    &__box{
-       @include mixin-mainbox;
-       padding: 10px;
-       background-color: $color-light-yellow;
-      &__title{
-        font-size: 22px;
+  &__foodstuff{
+    @include clearfix();
+    @include mixin-mainbox;
+    &__title{
+      @include mixin-titlefont;
+      font-size: 24px;
+      }
+    &__text{
+      text-align: center;
+    }
+    &__category{
+      @include clearfix();
+      padding: 15px 0;
+      &__image{
+        heigth: 25px;
+        width: 25px;
+        float: left;
+      }
+      &__name{
+        float: left;
+        font-size: 18px;
         color: $color-green;
+        margin: 2px 0 0 5px;
       }
-      &__subtitle{
-        @include clearfix();
-        padding-top: 15px;
-        &__image{
-          heigth: 25px;
-          width: 25px;
-          float: left;
-        }
-        &__category{
-          font-size: 18px;
-          color: $color-green;
-          float: left;
-          margin: 2px 0 0 5px;
-        }
-      }
-      &__foodstuff{
-        padding-left: 10px;
+      &__detail{
+        clear: both;
+        margin: 10px 0 0 10px;
       }
     }
-    &__user{
-       @include mixin-mainbox;
-       padding: 10px;
-       background-color: $color-light-yellow;
-      &__title{
-        font-size: 22px;
-        color: $color-green;
+  }
+  &__user{
+    @include clearfix();
+    @include mixin-mainbox;
+     padding: 10px;
+     background-color: $color-light-gray;
+    &__title{
+      @include mixin-titlefont;
+      font-size: 24px;
+    }
+    &__info{
+      @include clearfix();
+      margin-top: 10px;
+      border-radius: 15px;
+      border: solid $color-orange 1px;
+      box-shadow: $color-orange 2px 2px;
+      background-color: $color-light-yellow;
+      padding: 10px;
+      &__main{
+        float: left;
+        text-align:center;
+        &__image{
+          width: 70px;
+          height: 70px;
+        }
       }
-      &__info{
-        margin-top: 10px;
-        border-radius: 15px;
-        border: solid $color-orange 1px;
-        box-shadow: $color-orange 2px 2px;
-        padding: 10px;
-        @include clearfix();
-        &__picture{
-          float: left;
-          &__image{
-            width: 60px;
-            height: 60px;
-          }
-        }
-        &__name{
-          // float: left;
-          margin-left: 5px;
-        }
-        &__count{
-          // float: left;
-          margin-left: 5px;
-        }
-        &__introduction{
-
-        }
-        &__follow{
-        }
+      &__detail{
+        float: left;
+        margin-left: 10px;
       }
     }
   }
