@@ -1,31 +1,43 @@
-<div class="recommend">
-  <div class="recommend__morimori  clearfix">
+<div class="recommend  col-sm-6 col-md-6 ">
+
+  <div class="recommend__morimori">
     <%= link_to '/' do %>
-      <p class="recommend__morimori__name">料理名: <%= recommend.name %></p>
+      <div class="recommend_morimori__title">
+        <p class="recommend__morimori__title__name"><%= recommend.name %></p>
+      </div>
+    <% end %>
+
       <div class="recommend__morimori__picture">
         <%= image_tag recommend.image.url, class:"recommend__morimori__picture__image" %>
       </div>
-      <div class="recommend__morimori__make">
-        <p class="recommend__morimori__make__title">作り方</p>
-        <% Make.where(morimori_id: recommend).each.with_index(1) do |make, i| %>
-          <div class="recommend__morimori__make__text">
-            <p><%= i %>. <%= make.content %></p>
-          </div>
+        <div class="recommend__morimori__text clearfix">
+          <p><%= recommend.text %></p>
+        </div>
+      <div class="recommend__morimori__usedfoodstuff">
+        <p class="recommend__morimori__usedfoodstuff__title">利用した食材</p>
+        <% if recommend.mainsub_id == 0 then %>
+          <% @subfood_foodstuffs[i].each do |subfood_foodstuff| %>
+            <%= subfood_foodstuff.name %><br>
+          <% end %>
+        <% elsif recommend.mainsub_id == 1 then %>
+          <% @mainfood_foodstuffs[i].each do |mainfood_foodstuff| %>
+            <%= mainfood_foodstuff.name %><br>
+          <% end %>
         <% end %>
       </div>
-    <% end %>
-  </div>
-  <div class="recommend__creater">
-    <p class="recommend__creater__title">投稿者</p>
-    <%= link_to '/' do %>
-      <%= image_tag recommend.user.icon_image.url, class:"recommend__creater__image" %>
-      <%= recommend.user.name %>さん
-    <% end %>
-    <%= recommend.user.introduction %>
-    <% if user_signed_in? %>
-      <% unless current_user.id == recommend.user.id %>
-        <%= link_to "フォローする", '/', class:"btn btn-warning" %>
+    <div class="recommend__creater clearfix">
+      <p class="recommend__creater__title">投稿者</p>
+      <%= link_to '/' do %>
+        <%= image_tag recommend.user.icon_image.url, class:"recommend__creater__image" %>
+        <%= recommend.user.name %>さん
       <% end %>
-    <% end %>
+      <% if user_signed_in? %>
+        <% unless current_user.id == recommend.user.id %>
+          <%= link_to "フォローする", '/', class:"btn btn-warning" %>
+        <% else %>
+          <%= link_to "あなたです", '/', class:"btn btn-warning", disabled:true %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

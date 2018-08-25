@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180517145421) do
+ActiveRecord::Schema.define(version: 20180821144215) do
 
   create_table "best_foodstuffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "foodstuff_id"
@@ -72,6 +72,15 @@ ActiveRecord::Schema.define(version: 20180517145421) do
     t.index ["morimori_id"], name: "index_makes_on_morimori_id", using: :btree
   end
 
+  create_table "morimori_foodstuffs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "morimori_id"
+    t.integer  "foodstuff_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["foodstuff_id"], name: "index_morimori_foodstuffs_on_foodstuff_id", using: :btree
+    t.index ["morimori_id"], name: "index_morimori_foodstuffs_on_morimori_id", using: :btree
+  end
+
   create_table "morimori_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "picture",     null: false
     t.integer  "morimori_id"
@@ -81,13 +90,14 @@ ActiveRecord::Schema.define(version: 20180517145421) do
   end
 
   create_table "morimoris", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",         null: false
+    t.string   "name",                       null: false
     t.string   "image"
     t.integer  "mainsub_id"
     t.string   "mainsub_name"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.text     "text",         limit: 65535
     t.index ["name"], name: "index_morimoris_on_name", using: :btree
     t.index ["user_id"], name: "index_morimoris_on_user_id", using: :btree
   end
@@ -129,6 +139,7 @@ ActiveRecord::Schema.define(version: 20180517145421) do
     t.string   "encrypted_password",                   default: "", null: false
     t.text     "introduction",           limit: 65535
     t.string   "icon_image"
+    t.integer  "morimoris_count"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -139,7 +150,6 @@ ActiveRecord::Schema.define(version: 20180517145421) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.integer  "morimoris_count"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

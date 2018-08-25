@@ -1,36 +1,44 @@
 .recommend{
-  padding: 10px 20px;
+  padding: 10px 10px;
   border: solid 1px $color-orange;
   box-shadow: $color-orange 1px 1px 2px 2px;
   background-color: $color-white;
-  border-radius: 10px;
+  border-radius: 5px;
+  float: left;
   &__morimori{
     padding-top: 10px;
-    &__name{
-      @include mixin-titlefont;
-      font-size: 16px;
-      margin-bottom: 15px;
+    &__title{
+      &__name{
+        @include mixin-titlefont;
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
     }
     &__picture{
       float: left;
-      width: 250px;
+      width: 140px;
+      height: 180px;
       &__image{
-      width: 240px;
+        width: 130px;
+        border-radius: 5px;
       }
     }
-    &__make{
-      float: left;
-      margin-left: 10px;
+    &__text{
+      @include clearfix();
+      height: 80px;
+      font-size: 12px;
+    }
+    &__usedfoodstuff{
+      @include clearfix();
+      padding: 10px;
       &__title{
         @include mixin-titlefont;
         margin-bottom: 5px;
       }
-      &__text{
-        border-bottom: solid 1px $color-orange;
-      }
     }
   }
   &__creater{
+    @include clearfix();
     margin-top: 10px;
     border-radius: 15px;
     border: solid $color-orange 1px;
@@ -39,7 +47,7 @@
     padding: 10px;
     &__title{
       @include mixin-titlefont;
-      margin-bottom: 10px;
+      margin-bottom: 2px;
     }
     &__image{
       width: 30px;
