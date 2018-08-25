@@ -9,7 +9,7 @@
       <div class="item active">
         <%= image_tag('top1.png', class:"picture") %>
         <div class="carousel-caption">
-          <h1 class="title">COOK MORIMORI</h1>
+          <h1 class="top__title">COOK MORIMORI</h1>
           <p>奥様の為の献立検討サイト</p>
           <button type="button" class="btn btn-primary">このサイトについて</button>
         </div>
@@ -17,7 +17,7 @@
       <div class="item">
         <%= image_tag('top2.png', class:"picture") %>
         <div class="carousel-caption">
-          <h1 class="title">COOK MORIMORI</h1>
+          <h1 class="top__title">COOK MORIMORI</h1>
           <p>おすすめ料理には旬の食材を利用したものが表示されます。</p>
           <button type="button" class="btn btn-primary">旬の食材一覧</button>
         </div>
@@ -25,8 +25,8 @@
       <div class="item">
         <%= image_tag('top3.png', class:"picture") %>
         <div class="carousel-caption">
-          <h1 class="title">COOK MORIMORI</h1>
-          <p>さまざまなユーザーが投稿した料理の献立を見ることができます</p>
+          <h1 class="top__title">COOK MORIMORI</h1>
+            <p>さまざまなユーザーが投稿した料理の献立を見ることができます</p>
           <button type="button" class="btn btn-primary">ユーザー一覧</button>
         </div>
       </div>
@@ -43,17 +43,17 @@
   <div class="contents__recommend">
     <p class="contents__recommend__title">本日のおすすめ料理</p>
     <p class="contents__recommend__text">本日は<%= @date %>です。<%= @month.name %>月の旬の食材を使用した料理を表示しています。</p>
-    <p class="contents__recommend__reload"><%= link_to "おすすめ料理を更新する", '/', class:"btn btn-primary" %></p>
-    <div class="contents__recommend__sub col-sm-6 col-md-6">
+    <p class="contents__recommend__reload"><%= link_to "おすすめ料理を更新する", '/', class:"contents__recommend__reload__btn btn btn-primary" %></p>
+    <div class="contents__recommend__sub col-md-6 col-sm-6">
       <p class="contents__recommend__sub__title">副菜</p>
-      <% @recommend_subfoods.each do |recommend_subfood| %>
-        <%= render partial: "morimoris/shared/recommend", locals: { recommend: recommend_subfood } %>
+      <% @recommend_subfoods.each_with_index do |recommend_subfood, i| %>
+        <%= render partial: "morimoris/shared/recommend", locals: { recommend: recommend_subfood, i: i } %>
       <% end %>
     </div>
-    <div class="contents__recommend__main col-sm-6 col-md-6">
+    <div class="contents__recommend__main col-md-6 col-sm-6">
       <p class="contents__recommend__main__title">主菜</p>
-      <% @recommend_mainfoods.each do |recommend_mainfood| %>
-        <%= render partial: "morimoris/shared/recommend", locals: { recommend: recommend_mainfood } %>
+      <% @recommend_mainfoods.each_with_index do |recommend_mainfood, i| %>
+        <%= render partial: "morimoris/shared/recommend", locals: { recommend: recommend_mainfood, i: i  } %>
       <% end %>
     </div>
   </div>
@@ -104,11 +104,3 @@
     <% end %>
   </div>
 </div>
-<footer>
-  <ol class="breadcrumb">
-    <li><a href="#">ホーム</a></li>
-    <li><a href="#">このサイトについて</a></li>
-    <li><a href="#">お問い合わせ</a></li>
-  </ol>
-  <p>© 2018 Hiroki Kusumoto</p>
-</footer>
