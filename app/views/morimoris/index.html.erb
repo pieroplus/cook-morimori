@@ -59,7 +59,7 @@
   </div>
   <div class="contents__foodstuff clearfix">
     <p class="contents__foodstuff__title">旬の食材情報</p>
-    <p class="contents__foodstuff__text">季節は<%= @season %>です。<%= @month.name %>月の旬の食材を表示しています。</p>
+    <p class="contents__foodstuff__text"><%= @month.name %>月の旬の食材をピックアップしています。</p>
     <div class="space col-sm-1 col-md-1">
     </div>
     <% @categorys.each do |category| %>
@@ -85,13 +85,13 @@
     <p class="contents__user__title">おすすめ投稿者</p>
     <% @recommend_users.each do |user| %>
       <div class="contents__user__info col-sm-3 col-md-3">
-        <%= link_to '/' do %>
-          <div class="contents__user__info__main">
+        <div class="contents__user__info__main col-md-5 col-xs-5">
+          <%= link_to '/' do %>
             <%= image_tag user.icon_image.url, class:"contents__user__info__main__image" %>
-              <p><%= user.name %>さん</p>
-          </div>
-        <% end %>
-        <div class="contents__user__info__detail">
+            <p><%= user.name %>さん</p>
+          <% end %>
+        </div>
+        <div class="contents__user__info__detail col-md-6 col-xs-6">
           <p class="contents__user__info__count">料理投稿数: <%= user.morimoris_count %>件</p>
           <p class="contents__user__info__introduction"><%= user.introduction %></p>
           <% if user_signed_in? %>

@@ -1,0 +1,29 @@
+.recommend-users{
+  @include clearfix();
+  color: #5989cf;
+  background: #E6FFE9;
+  border-bottom: solid 4px #99CCCC;
+  border-radius: 6px;
+  min-height: 140px;
+  &__title{
+    margin-bottom: 5px;
+    &__name{
+      @include mixin-titlefont-sub;
+      padding: 5px;
+    }
+  }
+  &__picture{
+    &__image{
+      width: 100px;
+      border-radius: 20px;
+    }
+  }
+  &__info{
+    &__name{
+    }
+    &__count{
+    }
+    &__introduction{
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<div class="recommend-foods">
+  <div class="recommend-foods__title">
+    <p class="recommend-foods__title__name"><%= link_to "#{food.name}", morimori_path(food.id),  method: :"GET" %></p>
+  </div>
+  <div class="recommend-foods__picture col-md-5">
+    <%= link_to morimori_path(food.id), method: :"GET" do %>
+      <%= image_tag food.image.url, class:"recommend-foods__picture__image" %>
+    <% end %>
+  </div>
+  <div class="recommend-foods__detail col-md-7">
+    <div class="recommend-foods__detail__bestfoodstuff">
+      <p class="recommend-foods__detail__bestfoodstuff__title">旬の食材</p>
+      <% @recommend_best_foodstuffs[i].each do |foodstuff| %>
+        <%= link_to foodstuff.name, "/", class:"recommend-foods__detail__bestfoodstuff__name" %>
+      <% end %>
+    </div>
+    <div class="recommend-foods__detail__creater">
+      <p class="recommend-foods__detail__creater__title">投稿者</p>
+      <%= link_to '/' do %>
+        <%= image_tag food.user.icon_image.url, class:"recommend-foods__detail__creater__image" %>
+        <p class="recommend-foods__detail__creater__name"><%= food.user.name %>さん</p>
+      <% end %>
+    </div>
+  </div>
+</div>
