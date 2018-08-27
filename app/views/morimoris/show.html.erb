@@ -1,0 +1,93 @@
+<div class="showcontents clearfix">
+  <div class="showcontents__cook col-md-8 col-xs-12">
+    <p class="showcontents__cook__title"><%= @food.name %></p>
+    <div class="showcontents__cook__main clearfix">
+      <div class="showcontents__cook__main__left col-md-6 col-xs-6">
+        <div class="showcontents__cook__main__left__picture">
+          <%= image_tag @food.image.url, class:"showcontents__cook__main__left__picture__image" %>
+        </div>
+      </div>
+      <div class="showcontents__cook__main__right col-md-6 col-xs-6">
+        <div class="showcontents__cook__main__right__creater">
+          <p class="showcontents__cook__main__right__creater__title">投稿者</p>
+          <div class="showcontents__cook__main__right__creater__info">
+            <div class="showcontents__cook__main__right__creater__info__picture">
+              <%= link_to '/' do %>
+                <%= image_tag @food.user.icon_image.url, class:"showcontents__cook__main__right__creater__info__picture__image" %>
+              <% end %>
+            </div>
+            <div class="showcontents__cook__main__right__creater__info__detail">
+              <%= link_to "#{@food.user.name}さん", '/' %>
+              <p>料理投稿件数：<%= @food.user.morimoris_count %>件</p>
+            </div>
+            <div class="showcontents__cook__main__right__creater__info__follow">
+              <% if user_signed_in? %>
+                <% unless current_user.id == @food.user.id %>
+                  <%= link_to "フォローする", '/', class:"btn btn-warning" %>
+                <% else %>
+                  <%= link_to "編集する", '/', class:"btn btn-warning" %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="showcontents__cook__main__right__introduction">
+          <p class="showcontents__cook__main__right__introduction__title">投稿者コメント</p>
+          <p class="showcontents__cook__main__right__introduction__text"><%= @food.text %></p>
+        </div>
+        <div class="showcontents__cook__main__right__genre">
+          <p class="showcontents__cook__main__right__genre__title">ジャンル</p>
+          <p class="showcontents__cook__main__right__genre__name"><%= @food.mainsub_name %></p>
+        </div>
+        <div class="showcontents__cook__main__right__bestfoodstuff">
+          <p class="showcontents__cook__main__right__bestfoodstuff__title">利用した旬な食材</p>
+          <% @show_best_foodstuffs.each do |best_foodstuff| %>
+            <%= best_foodstuff.name %>
+          <% end %>
+        </div>
+        <div class="showcontents__cook__main__right__foodstuff">
+          <p class="showcontents__cook__main__right__foodstuff__title">材料</p>
+          <% @foodstuffs.each do |foodstuff| %>
+            <div class="showcontents__cook__main__right__foodstuff__name">
+              <%= foodstuff.name %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="showcontents__cook__make">
+      <% @food_makes.each.with_index(1) do |make, i| %>
+        <div class="showcontents__cook__make__box">
+          <p class="showcontents__cook__make__box__number">工程<%= i %></p>
+          <p class="showcontents__cook__make__box__text"><%= make.content %></p>
+          <div class="showcontents__cook__make__box__picture">
+            <% if make.image.present? %>
+              <%= image_tag make.image.url, class:"showcontents__cook__make__box__picture__image" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="showcontents__recommend col-md-4 col-xs-12">
+    <div class="showcontents__recommend__foods">
+      <p class="showcontents__recommend__foods__title">旬のおすすめ料理</p>
+      <% @recommend_foods.each_with_index do |recommend_food, i| %>
+        <%= render partial: "shared/recommend-foods", locals: { food: recommend_food, i: i } %>
+      <% end %>
+    </div>
+    <div class="showcontents__recommend__foods">
+      <p class="showcontents__recommend__foods__title">新着料理</p>
+      <% @new_foods.each_with_index do |new_food, i| %>
+        <%= render partial: "shared/recommend-foods", locals: { food: new_food, i: i } %>
+      <% end %>
+    </div>
+    <div class="showcontents__recommend__users">
+      <p class="showcontents__recommend__users__title">おすすめユーザー</p>
+      <% @recommend_users.each do |recommend_user| %>
+        <%= render partial: "shared/recommend-users", locals: { user: recommend_user } %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

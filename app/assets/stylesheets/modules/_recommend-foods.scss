@@ -1,0 +1,46 @@
+.recommend-foods{
+  @include clearfix();
+  color: #5989cf;
+  background: #c6e4ff;
+  border-bottom: solid 4px #aac5de;
+  border-radius: 6px;
+  min-height: 150px;
+  &__title{
+    margin-bottom: 10px;
+    &__name{
+      @include mixin-titlefont-sub;
+      padding: 5px;
+    }
+  }
+  &__picture{
+    padding: 0 0 5px 5px;
+    &__image{
+      width: 100px;
+      border-radius: 5px;
+    }
+  }
+  &__detail{
+    padding-left: 10px;
+    &__bestfoodstuff{
+      &__title{
+       font-weight: bold;
+       color: $color-green;
+      }
+      &__name{
+      }
+    }
+    &__creater{
+      &__title{
+       margin-top: 5px;
+       font-weight: bold;
+       color: $color-green;
+      }
+      &__image{
+        width: 40px;
+        border-radius: 4px;
+      }
+      &__name{
+      }
+    }
+  }
+}

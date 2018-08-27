@@ -1,0 +1,19 @@
+<div class="recommend-users">
+  <div class="recommend-users__title">
+    <p class="recommend-users__title__name"><%= link_to "#{user.name}さん", "/" %></p>
+  </div>
+  <div class="recommend-users__picture col-md-5 ">
+    <%= link_to '/' do %>
+      <%= image_tag user.icon_image.url, class:"recommend-users__picture__image" %>
+    <% end %>
+  </div>
+  <div class="recommend-users__info col-md-7">
+    <p class="recommend-users__info__count">料理投稿数: <%= user.morimoris_count %>件</p>
+    <p class="recommend-users__info__introduction"><%= user.introduction %></p>
+    <% if user_signed_in? %>
+      <% unless current_user.id == user.id %>
+        <%= link_to "フォローする", '/', class:"btn btn-warning" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

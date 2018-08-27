@@ -1,27 +1,26 @@
 <div class="recommend  col-sm-6 col-md-6 ">
-
   <div class="recommend__morimori">
-    <%= link_to '/' do %>
-      <div class="recommend_morimori__title">
-        <p class="recommend__morimori__title__name"><%= recommend.name %></p>
-      </div>
-    <% end %>
+    <div class="recommend_morimori__title">
+      <p class="recommend__morimori__title__name"><%= link_to "#{recommend.name}", morimori_path(recommend.id),  method: :"GET" %></p>
+    </div>
 
       <div class="recommend__morimori__picture">
-        <%= image_tag recommend.image.url, class:"recommend__morimori__picture__image" %>
+        <%= link_to morimori_path(recommend.id), method: :"GET" do %>
+          <%= image_tag recommend.image.url, class:"recommend__morimori__picture__image" %>
+        <% end %>
       </div>
         <div class="recommend__morimori__text clearfix">
           <p><%= recommend.text %></p>
         </div>
       <div class="recommend__morimori__usedfoodstuff">
-        <p class="recommend__morimori__usedfoodstuff__title">利用した食材</p>
+        <p class="recommend__morimori__usedfoodstuff__title">旬の食材</p>
         <% if recommend.mainsub_id == 0 then %>
-          <% @subfood_foodstuffs[i].each do |subfood_foodstuff| %>
-            <%= subfood_foodstuff.name %><br>
+          <% @sub_best_foodstuffs[i].each do |subfood_foodstuff| %>
+            <%= link_to subfood_foodstuff.name, "/" %><br>
           <% end %>
         <% elsif recommend.mainsub_id == 1 then %>
-          <% @mainfood_foodstuffs[i].each do |mainfood_foodstuff| %>
-            <%= mainfood_foodstuff.name %><br>
+          <% @main_best_foodstuffs[i].each do |mainfood_foodstuff| %>
+            <%= link_to mainfood_foodstuff.name, "/" %><br>
           <% end %>
         <% end %>
       </div>

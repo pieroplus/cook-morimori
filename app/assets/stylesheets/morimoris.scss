@@ -8,6 +8,8 @@
     margin:10px 16px;
   }
 }
+
+// index
 .contents{
   &__recommend{
     @include clearfix();
@@ -19,10 +21,6 @@
       font-size: 24px;
     }
     &__text{
-      text-align: center;
-    }
-    &__reload{
-      margin-top: 5px;
       text-align: center;
     }
     &__sub{
@@ -80,27 +78,168 @@
       font-size: 24px;
     }
     &__info{
-      @include clearfix();
       margin-top: 10px;
       border-radius: 15px;
       border: solid $color-orange 1px;
       box-shadow: $color-orange 2px 2px;
       background-color: $color-light-yellow;
       padding: 10px;
+      min-height: 120px;
       &__main{
-        float: left;
         text-align:center;
         &__image{
           width: 70px;
-          height: 70px;
           border-radius: 20px;
         }
       }
       &__detail{
-        float: left;
         margin-left: 10px;
       }
     }
+  }
+}
+
+// show
+.showcontents{
+  @include mixin-headerfix;
+  @include clearfix();
+  &__cook{
+      background-color: $color-light-gray;
+      padding: 0 20px;
+      margin-top: 10px;
+      border-radius: 10px;
+    &__title{
+      @include mixin-titlefont;
+      font-size: 20px;
+      margin: 20px 0;
+    }
+    &__main{
+      margin: 10px 0 0 10px;
+      padding:10px 0;
+      border-bottom: solid 1px;
+      padding: 10px;
+      background-color: $color-light-gray;
+      &__left{
+        &__picture{
+          padding-left: 20px;
+          &__image{
+            width: 350px;
+            border-radius: 5px;
+          }
+        }
+      }
+      &__right{
+        padding: 0 30px;
+        &__creater{
+          &__title{
+            @include mixin-titlefont-sub;
+          }
+          &__info{
+            @include clearfix();
+            margin-left: 5px;
+            &__picture{
+              margin: 5px 0 0 5px;
+              float: left;
+              &__image{
+                width: 50px;
+                border-radius: 5px;
+                margin-bottom: 5px;
+              }
+            }
+            &__detail{
+              padding-left: 10px;
+              float: left;
+            }
+            &__follow{
+              padding: 5px 5px 0 0;
+              float: right;
+            }
+          }
+        }
+        &__genre{
+          &__title{
+            @include mixin-titlefont-sub;
+          }
+          &__name{
+            margin-left: 5px;
+          }
+        }
+        &__introduction{
+          &__title{
+            @include mixin-titlefont-sub;
+          }
+          &__text{
+            margin-left: 5px;
+          }
+        }
+        &__bestfoodstuff{
+          &__title{
+            @include mixin-titlefont-sub;
+          }
+          &__name{
+            margin-left: 5px;
+          }
+        }
+        &__foodstuff{
+          &__title{
+            @include mixin-titlefont-sub;
+          }
+          &__name{
+            margin: 2px 0 0 5px;
+            border-bottom: dashed 1px;
+          }
+        }
+      }
+    }
+    &__make{
+      padding: 20px;
+      &__box{
+        border-bottom: dashed 1px;
+        &__number{
+          padding-top: 20px;
+          font-size: 20px;
+          color: $color-orange;
+        }
+        &__text{
+          padding: 10px;
+        }
+        &__picture{
+            text-align: center;
+          &__image{
+            border-radius: 10px;
+            padding-bottom: 20px;
+            width: 400px;
+          }
+        }
+      }
+    }
+  }
+  &__recommend{
+    // margin-top: 10px;
+    padding-left: 20px;
+    &__foods{
+      margin-top: 10px;
+      padding: 0 20px 10px 20px;
+      background-color: $color-light-gray;
+      border-radius: 10px;
+      &__title{
+        @include mixin-titlefont;
+        font-size: 20px;
+        padding: 10px 0;
+      }
+    }
+    &__users{
+      margin-top: 10px;
+      padding: 0 20px 10px 20px;
+      background-color: $color-light-gray;
+      border-radius: 10px;
+      &__title{
+        @include mixin-titlefont;
+        font-size: 20px;
+        padding: 10px 0;
+      }
+    }
+
   }
 }
 footer {

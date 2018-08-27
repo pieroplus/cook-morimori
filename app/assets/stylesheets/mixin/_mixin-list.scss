@@ -19,6 +19,13 @@
   text-align: center;
 }
 
+@mixin mixin-titlefont-sub{
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  color: $color-green;
+}
+
 //clearfix
 @mixin clearfix() {
   &:after {

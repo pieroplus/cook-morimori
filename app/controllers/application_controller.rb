@@ -21,16 +21,6 @@ class ApplicationController < ActionController::Base
     @date = Date.today
     system_month = @date.month
     @month = Season.find(system_month)
-    case system_month
-      when 12, 1, 2 then
-        @season = "冬"
-      when 3, 4, 5 then
-        @season = "春"
-      when 6, 7, 8 then
-        @season = "夏"
-      when 9, 10, 11
-        @season = "冬"
-    end
   end
 
   def get_best_foodstuff
