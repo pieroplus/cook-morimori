@@ -1,13 +1,13 @@
-<div class="recommend-foods">
+<div class="recommend-foods col-md-12 col-xs-4">
   <div class="recommend-foods__title">
     <p class="recommend-foods__title__name"><%= link_to "#{food.name}", morimori_path(food.id),  method: :"GET" %></p>
   </div>
-  <div class="recommend-foods__picture col-md-5">
+  <div class="recommend-foods__picture col-md-5 col-xs-5">
     <%= link_to morimori_path(food.id), method: :"GET" do %>
       <%= image_tag food.image.url, class:"recommend-foods__picture__image" %>
     <% end %>
   </div>
-  <div class="recommend-foods__detail col-md-7">
+  <div class="recommend-foods__detail col-md-7 col-xs-7">
     <div class="recommend-foods__detail__bestfoodstuff">
       <p class="recommend-foods__detail__bestfoodstuff__title">旬の食材</p>
       <% @recommend_best_foodstuffs[i].each do |foodstuff| %>

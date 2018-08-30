@@ -2,6 +2,8 @@ class MorimorisController < ApplicationController
   before_action :find_category
 
   def index
+    @sub_foodstuffs = []
+    @main_foodstuffs= []
     @sub_best_foodstuffs = []
     @main_best_foodstuffs = []
 
@@ -11,7 +13,7 @@ class MorimorisController < ApplicationController
     @vegetables = @month.foodstuffs.merge(Morimori.get_category(@vegetable))
     @fruits     = @month.foodstuffs.merge(Morimori.get_category(@fruit))
     @fishes     = @month.foodstuffs.merge(Morimori.get_category(@fish))
-    @seafoods   = @month.foodstuffs.merge(Morimori.get_category(@seafoods))
+    @seafoods   = @month.foodstuffs.merge(Morimori.get_category(@seafood))
     @others     = @month.foodstuffs.merge(Morimori.get_category(@other))
     @categorys  = Category.where.not(id: 6).order('id ASC')
     #おすすめユーザ検索
@@ -33,6 +35,7 @@ class MorimorisController < ApplicationController
     find_recommend_users(3)
   end
 
+  #おすすめ料理検索
   def find_recommend_foods(count)
     if @path.is('morimoris#index')
       @recommend_subfoods = Morimori.includes(:user).where(id: @morimori_ids).main_sub(0).get_random(count)
@@ -56,16 +59,19 @@ class MorimorisController < ApplicationController
   # 料理で使用している食材を取得する。
   def find_foodstuffs(foods)
     foods.each do |food|
-      foodstuffs = food.foodstuffs.merge(Morimori.get_random(2))
+      foodstuff = food.foodstuffs
+      best_foodstuff = food.foodstuffs.where(id: @foodstuff_ids)
       if @path.is('morimoris#index')
         case food.mainsub_id
           when 0
-            @sub_best_foodstuffs << foodstuffs
+            @sub_foodstuffs << foodstuff
+            @sub_best_foodstuffs << best_foodstuff
           when 1
-            @main_best_foodstuffs << foodstuffs
+            @main_foodstuffs << foodstuff
+            @main_best_foodstuffs << best_foodstuff
         end
       else
-        @recommend_best_foodstuffs << food.foodstuffs
+        @recommend_best_foodstuffs << best_foodstuff
       end
     end
   end

@@ -1,5 +1,5 @@
 <div class="top">
-  <div id="carousel-content" class="carousel slide" data-ride="carousel">
+  <div id="carousel-content" class="carousel slide col-md-12 hidden-sm" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carousel-content" data-slide-to="0" class="active"></li>
       <li data-target="#carousel-content" data-slide-to="1"></li>
@@ -40,27 +40,26 @@
   </div>
 </div>
 <div class="contents">
-  <div class="contents__recommend">
+  <div class="contents__recommend col-md-12 col-xs-9">
     <p class="contents__recommend__title">本日のおすすめ料理</p>
     <p class="contents__recommend__text">本日は<%= @date %>です。<%= @month.name %>月の旬の食材を使用した料理を表示しています。</p>
-    <p class="contents__recommend__reload"><%= link_to "おすすめ料理を更新する", '/', class:"contents__recommend__reload__btn btn btn-primary" %></p>
-    <div class="contents__recommend__sub col-md-6 col-sm-6">
+    <div class="contents__recommend__sub">
       <p class="contents__recommend__sub__title">副菜</p>
       <% @recommend_subfoods.each_with_index do |recommend_subfood, i| %>
         <%= render partial: "morimoris/shared/recommend", locals: { recommend: recommend_subfood, i: i } %>
       <% end %>
     </div>
-    <div class="contents__recommend__main col-md-6 col-sm-6">
+    <div class="contents__recommend__main">
       <p class="contents__recommend__main__title">主菜</p>
       <% @recommend_mainfoods.each_with_index do |recommend_mainfood, i| %>
         <%= render partial: "morimoris/shared/recommend", locals: { recommend: recommend_mainfood, i: i  } %>
       <% end %>
     </div>
   </div>
-  <div class="contents__foodstuff clearfix">
+  <div class="contents__foodstuff col-md-12 col-xs-3">
     <p class="contents__foodstuff__title">旬の食材情報</p>
     <p class="contents__foodstuff__text"><%= @month.name %>月の旬の食材をピックアップしています。</p>
-    <div class="space col-sm-1 col-md-1">
+    <div class="space col-md-1">
     </div>
     <% @categorys.each do |category| %>
       <% foodstuffs = @vegetables if category.id == 1 %>
@@ -68,7 +67,7 @@
       <% foodstuffs = @fishes     if category.id == 3 %>
       <% foodstuffs = @seafoods   if category.id == 4 %>
       <% foodstuffs = @others     if category.id == 5 %>
-      <div class="contents__foodstuff__category col-sm-2 col-md-2 clearfix">
+      <div class="contents__foodstuff__category col-md-2 col-xs-2">
         <%= image_tag("#{category.name}.png", class:"contents__foodstuff__category__image") %><p class="contents__foodstuff__category__name"><%= category.name %></p><br>
         <div class="contents__foodstuff__category__detail">
           <% Array(foodstuffs).each do |foodstuff| %>
@@ -78,13 +77,13 @@
         </div>
       </div>
     <% end %>
-    <div class="space col-sm-1 col-md-1">
+    <div class="space col-md-1">
     </div>
   </div>
   <div class="contents__user clearfix">
     <p class="contents__user__title">おすすめ投稿者</p>
     <% @recommend_users.each do |user| %>
-      <div class="contents__user__info col-sm-3 col-md-3">
+      <div class="contents__user__info col-md-3 col-xs-6">
         <div class="contents__user__info__main col-md-5 col-xs-5">
           <%= link_to '/' do %>
             <%= image_tag user.icon_image.url, class:"contents__user__info__main__image" %>
@@ -92,7 +91,7 @@
           <% end %>
         </div>
         <div class="contents__user__info__detail col-md-6 col-xs-6">
-          <p class="contents__user__info__count">料理投稿数: <%= user.morimoris_count %>件</p>
+          <p class="contents__user__info__count">投稿数: <%= user.morimoris_count %>件</p>
           <p class="contents__user__info__introduction"><%= user.introduction %></p>
           <% if user_signed_in? %>
             <% unless current_user.id == user.id %>
