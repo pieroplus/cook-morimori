@@ -1,42 +1,44 @@
-<div class="recommend  col-sm-6 col-md-6 ">
+<div class="recommend col-md-6 col-xs-12 ">
   <div class="recommend__morimori">
     <div class="recommend_morimori__title">
-      <p class="recommend__morimori__title__name"><%= link_to "#{recommend.name}", morimori_path(recommend.id),  method: :"GET" %></p>
+      <p class="recommend__morimori__title__name"><%= link_to "#{recommend.name}", morimori_path(recommend.id), method: :"GET" %></p>
     </div>
-
-      <div class="recommend__morimori__picture">
-        <%= link_to morimori_path(recommend.id), method: :"GET" do %>
-          <%= image_tag recommend.image.url, class:"recommend__morimori__picture__image" %>
+    <div class="recommend__morimori__picture col-md-6 col-xs-6">
+      <%= link_to morimori_path(recommend.id), method: :"GET" do %>
+        <%= image_tag recommend.image.url, class:"recommend__morimori__picture__image img-responsive" %>
+      <% end %>
+    </div>
+    <div class="recommend__morimori__detail col-md-6 col-xs-6">
+      <p class="recommend__morimori__detail__text"><%= recommend.text %></p>
+      <% if recommend.mainsub_id == 0 then %>
+        <p class="recommend__morimori__detail__title">利用した材料</p>
+        <%= render partial: "morimoris/shared/foodstuff", locals: { foodstuffs: @sub_foodstuffs, i: i } %>
+        <p class="recommend__morimori__detail__title">利用した旬の食材</p>
+        <%= render partial: "morimoris/shared/foodstuff", locals: { foodstuffs: @sub_best_foodstuffs, i: i } %>
+      <% elsif recommend.mainsub_id == 1 then %>
+        <p class="recommend__morimori__detail__title">利用した材料</p>
+        <%= render partial: "morimoris/shared/foodstuff", locals: { foodstuffs: @main_foodstuffs, i: i } %>
+        <p class="recommend__morimori__detail__title">利用した旬の食材</p>
+        <%= render partial: "morimoris/shared/foodstuff", locals: { foodstuffs: @main_best_foodstuffs, i: i } %>
+      <% end %>
+      <div class="recommend__morimori__detail__creater  col-md-12 col-xs-12">
+        <p class="recommend__morimori__detail__creater__title">投稿者</p>
+        <%= link_to '/' do %>
+          <div class="recommend__morimori__detail__creater__main col-md-5 col-xs-5">
+            <%= image_tag recommend.user.icon_image.url, class:"recommend__morimori__detail__creater__main__image img-responsive" %>
+          </div>
+          <div class="recommend__morimori__detail__creater__main col-md-7 col-xs-7">
+            <%= recommend.user.name %>さん
+          </div>
+        <% end %>
+        <% if user_signed_in? %>
+          <% unless current_user.id == recommend.user.id %>
+            <%= link_to "フォローする", '/', class:"btn btn-warning" %>
+          <% else %>
+            <%= link_to "あなたです", '/', class:"btn btn-warning", disabled:true %>
+          <% end %>
         <% end %>
       </div>
-        <div class="recommend__morimori__text clearfix">
-          <p><%= recommend.text %></p>
-        </div>
-      <div class="recommend__morimori__usedfoodstuff">
-        <p class="recommend__morimori__usedfoodstuff__title">旬の食材</p>
-        <% if recommend.mainsub_id == 0 then %>
-          <% @sub_best_foodstuffs[i].each do |subfood_foodstuff| %>
-            <%= link_to subfood_foodstuff.name, "/" %><br>
-          <% end %>
-        <% elsif recommend.mainsub_id == 1 then %>
-          <% @main_best_foodstuffs[i].each do |mainfood_foodstuff| %>
-            <%= link_to mainfood_foodstuff.name, "/" %><br>
-          <% end %>
-        <% end %>
-      </div>
-    <div class="recommend__creater clearfix">
-      <p class="recommend__creater__title">投稿者</p>
-      <%= link_to '/' do %>
-        <%= image_tag recommend.user.icon_image.url, class:"recommend__creater__image" %>
-        <%= recommend.user.name %>さん
-      <% end %>
-      <% if user_signed_in? %>
-        <% unless current_user.id == recommend.user.id %>
-          <%= link_to "フォローする", '/', class:"btn btn-warning" %>
-        <% else %>
-          <%= link_to "あなたです", '/', class:"btn btn-warning", disabled:true %>
-        <% end %>
-      <% end %>
     </div>
   </div>
 </div>

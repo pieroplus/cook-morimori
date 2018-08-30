@@ -1,10 +1,10 @@
 .recommend-foods{
-  @include clearfix();
   color: #5989cf;
   background: #c6e4ff;
-  border-bottom: solid 4px #aac5de;
+  border: solid 2px #aac5de;
   border-radius: 6px;
-  min-height: 150px;
+  min-height: 230px;
+  margin-bottom: 10px;
   &__title{
     margin-bottom: 10px;
     &__name{

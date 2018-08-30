@@ -26,6 +26,11 @@
   color: $color-green;
 }
 
+@mixin flex{
+display: flex;
+flex-wrap: wrap;
+}
+
 //clearfix
 @mixin clearfix() {
   &:after {

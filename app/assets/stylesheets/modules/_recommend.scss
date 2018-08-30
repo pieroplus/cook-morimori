@@ -1,57 +1,47 @@
 .recommend{
-  padding: 10px 10px;
-  border: solid 1px $color-orange;
-  box-shadow: $color-orange 1px 1px 2px 2px;
-  background-color: $color-white;
-  border-radius: 5px;
-  float: left;
+    padding: 0.2em 0.5em;
+    margin: 1em 0;
+    background: #d6ebff;
+    box-shadow: 0px 0px 0px 10px #d6ebff;
+    border: dashed 2px white;
   &__morimori{
-    padding-top: 10px;
     &__title{
       &__name{
         @include mixin-titlefont;
-        font-size: 14px;
+        font-size: 18px;
         margin-bottom: 15px;
       }
     }
     &__picture{
-      float: left;
-      width: 140px;
-      height: 180px;
+        margin-top: 10px;
       &__image{
-        width: 130px;
-        border-radius: 5px;
+        border-radius: 10px;
       }
     }
-    &__text{
-      @include clearfix();
-      height: 80px;
-      font-size: 12px;
-    }
-    &__usedfoodstuff{
-      @include clearfix();
-      padding: 10px;
+    &__detail{
+      &__text{
+      }
       &__title{
-        @include mixin-titlefont;
-        margin-bottom: 5px;
+        @include mixin-titlefont-sub;
+        // padding-top: 10px;
       }
-    }
-  }
-  &__creater{
-    @include clearfix();
-    margin-top: 10px;
-    border-radius: 15px;
-    border: solid $color-orange 1px;
-    box-shadow: $color-orange 2px 2px;
-    background-color: $color-light-yellow;
-    padding: 10px;
-    &__title{
-      @include mixin-titlefont;
-      margin-bottom: 2px;
-    }
-    &__image{
-      width: 30px;
-      height: 30px;
+      &__name{
+      }
+      &__creater{
+        margin-top: 10px;
+        border-radius: 15px;
+        border: solid $color-orange 1px;
+        box-shadow: $color-orange 2px 2px;
+        background-color: $color-light-yellow;
+        padding: 10px;
+        &__title{
+          @include mixin-titlefont;
+          margin-bottom: 2px;
+        }
+        &__image{
+        }
+      }
     }
   }
 }
+

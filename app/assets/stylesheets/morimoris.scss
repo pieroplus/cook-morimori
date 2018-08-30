@@ -11,12 +11,13 @@
 
 // index
 .contents{
+  @include mixin-headerfix;
   &__recommend{
-    @include clearfix();
     @include mixin-mainbox;
     background-color: $color-light-gray;
     padding: 10px;
     &__title{
+      padding-top: 10px;
       @include mixin-titlefont;
       font-size: 24px;
     }
@@ -26,20 +27,23 @@
     &__sub{
       &__title{
         @include mixin-titlefont;
-        margin-top: 20px;
+        margin-top: 30px;
         font-size: 18px;
+        background-color: #d6ebff;
+        box-shadow: 0 0 0 10px #d6ebff;
       }
     }
     &__main{
       &__title{
         @include mixin-titlefont;
-        margin-top: 20px;
+        margin-top: 30px;
         font-size: 18px;
+        background-color: #d6ebff;
+        box-shadow: 0 0 0 10px #d6ebff;
       }
     }
   }
   &__foodstuff{
-    @include clearfix();
     @include mixin-mainbox;
     &__title{
       @include mixin-titlefont;
@@ -54,22 +58,18 @@
       &__image{
         heigth: 25px;
         width: 25px;
-        float: left;
       }
       &__name{
-        float: left;
         font-size: 18px;
         color: $color-green;
         margin: 2px 0 0 5px;
       }
       &__detail{
-        clear: both;
         margin: 10px 0 0 10px;
       }
     }
   }
   &__user{
-    @include clearfix();
     @include mixin-mainbox;
      padding: 10px;
      background-color: $color-light-gray;
@@ -81,7 +81,6 @@
       margin-top: 10px;
       border-radius: 15px;
       border: solid $color-orange 1px;
-      box-shadow: $color-orange 2px 2px;
       background-color: $color-light-yellow;
       padding: 10px;
       min-height: 120px;
@@ -102,7 +101,6 @@
 // show
 .showcontents{
   @include mixin-headerfix;
-  @include clearfix();
   &__cook{
       background-color: $color-light-gray;
       padding: 0 20px;
@@ -139,7 +137,6 @@
             margin-left: 5px;
             &__picture{
               margin: 5px 0 0 5px;
-              float: left;
               &__image{
                 width: 50px;
                 border-radius: 5px;
@@ -148,11 +145,9 @@
             }
             &__detail{
               padding-left: 10px;
-              float: left;
             }
             &__follow{
               padding: 5px 5px 0 0;
-              float: right;
             }
           }
         }
@@ -215,8 +210,8 @@
     }
   }
   &__recommend{
-    // margin-top: 10px;
     padding-left: 20px;
+    @include flex;
     &__foods{
       margin-top: 10px;
       padding: 0 20px 10px 20px;
